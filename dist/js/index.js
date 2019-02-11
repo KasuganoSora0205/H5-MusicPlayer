@@ -5,6 +5,7 @@ var songlist;
 var controlmanager;
 var audiomanager = new root.AudioManager();
 var processor = root.processor;
+var playList = root.playList;
 function getDate(url) {
     $.ajax({
         type: 'get',
@@ -16,11 +17,11 @@ function getDate(url) {
     })
 }
 
-$scope.on('play:change', function (e, index) {
+$scope.on('play:change', function (e, index,flag) {
     var curdata = songlist[index];
     root.render(curdata);
     audiomanager.switchAudio(curdata.audio);
-    if (audiomanager.status === "play") {
+    if (audiomanager.status === "play" || flag) {
         audiomanager.play();
         processor.start()
     }
@@ -45,6 +46,9 @@ $scope.on('click', '.play', function () {
         audiomanager.play();
         processor.start();
     }
+})
+$scope.on('click','.list',function(){
+    playList.show(controlmanager);
 })
 //进度条拖拽
 function bindTouch() {
@@ -78,5 +82,6 @@ function successedFn(data) {
     songlist = data;
     controlmanager = new root.controlManager(data.length);
     $scope.trigger('play:change', 0);
+    playList.render(data);
 }
 getDate("/mock/data.json")

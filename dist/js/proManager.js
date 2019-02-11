@@ -5,14 +5,14 @@
     var frameID;
     var lastPercentage = 0;
     function renderTime (duration){
-        lastPercentage = 0;
         curDuration = duration;
+        updata(0);
+        lastPercentage = 0;
         var allTime = transTime(duration);
         $scope.find('.all-time').text(allTime);
     }
     function setProcessor(percenetage){
         var percent = (percenetage - 1) * 100 + '%';
-        console.log(percent)
         $scope.find('.pro-top').css({
             "transform" : "translateX(" + percent + ")"
         })

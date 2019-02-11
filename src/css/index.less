@@ -126,3 +126,41 @@ body{
         
     }
 }
+.play-list{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff; 
+    transform: translateY(100%);
+    transition: transform 200ms ;
+    z-index: 999;
+    &.show{
+        transform: translateY(0);
+    }
+    .line-head,.close-btn{
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        color: #424242;   
+    }
+    li{
+        height: 20px;
+        padding: 10px;
+        border-top: 1px solid rgba(0, 0, 0, .3);
+        h3{
+            color: #424242;
+            span{
+                color: #777
+            }
+        }
+        &.playing{
+            h3{
+                color:rgba(255,0,0,.8);
+                span{
+                    color:rgba(255, 0, 0, .6)
+                }
+            }
+        }
+    }
+}
