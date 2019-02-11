@@ -1,0 +1,25 @@
+{
+  "name": "h5-musicplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KasuganoSora0205/H5-MusicPlayer.git"
+  },
+  "author": "guojiaqi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KasuganoSora0205/H5-MusicPlayer/issues"
+  },
+  "homepage": "https://github.com/KasuganoSora0205/H5-MusicPlayer#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-less": "^4.0.1",
+    "undertaker-registry": "^1.0.1"
+  }
+}

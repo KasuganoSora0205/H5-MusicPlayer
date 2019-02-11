@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="song-img">
+            <div class="img-wrapper">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="song-info">
+            <h1 class="song-name"></h1>
+            <h3 class="singer-name"></h3>
+            <h3 class="album-name"></h3>
+        </div>
+        <div class="play-area">
+            <div class="cur-time">00:00</div>
+            <div class="pro-wrapper">
+                <div class="pro-bottom"></div>
+                <div class="pro-top">
+                    <span class="slide-point"></span>
+                </div>
+            </div>
+            <div class="all-time">00:00</div>
+        </div>
+        <div class="play-control">
+            <div class="btn-default like">
+                <svg>
+                        <path id="svg_1" d="m30.46774,22.2189c6.59672,-16.53821 32.4429,0 0,21.26341c-32.4429,-21.26341 -6.59672,-37.80162 0,-21.26341z" stroke="#fff" fill="none"/>
+                </svg>
+            </div>
+            <div class="btn-default prev">
+                <svg>
+                    <line stroke='#fff' x1='20' y1='15' x2='20' y2='45' ></line>
+                    <polygon stroke='#fff' fill='none' points='24,30 45,17 45,43'></polygon>
+                </svg>
+            </div>
+            <div class="btn-default play">
+                <svg>
+                    <circle stroke='#fff' fill='none' r='24' cx='50%' cy='50%'></circle>
+                    <polygon stroke='#fff' fill='#fff' points='25,20 40,30 25,40'></polygon>
+                </svg>
+            </div>
+            <div class="btn-default next">
+                <svg>
+                    <line stroke='#fff' x1='40' y1='15' x2='40' y2='45' ></line>
+                    <polygon stroke='#fff' fill='none' points='36,30 15,17 15,43'></polygon>
+                </svg>
+            </div>
+            <div class="btn-default list">
+                <svg>
+                    <polygon stroke='#fff' fill='#fff' points='17,17 22,20 17,23'></polygon>
+                    <line stroke='#fff' x1='25' y1='20' x2='43' y2='20'></line>
+                    <line stroke='#fff' x1='17' y1='30' x2='43' y2='30'></line>
+                    <line stroke='#fff' x1='17' y1='40' x2='43' y2='40'></line>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="./js/zepto.js"></script>
+    <script src="./js/gaussBlur.js"></script>
+    <script src="./js/render.js"></script>
+    <script src="./js/controlManager.js"></script>
+    <script src="./js/audioManager.js"></script>
+    <script src="./js/proManager.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
