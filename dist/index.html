@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-    minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>音乐播放器</title>
+    <title>Music Player</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
-    <div class="wrapper">
+    <div class="content-wrap">
+        <div class="song-info">
+            <h1 class="song-name">Independence</h1>
+            <h3 class="singer-name">神崎エルザ </h3>
+        </div>
         <div class="song-img">
             <div class="img-wrapper">
                 <img src="" alt="">
             </div>
         </div>
-        <div class="song-info">
-            <h1 class="song-name"></h1>
-            <h3 class="singer-name"></h3>
-            <h3 class="album-name"></h3>
+        <div class="lyrics-wrapper">
+            <div class="lyrics">
+                <h3>//歌词//</h3>
+            </div>
         </div>
         <div class="play-area">
             <div class="cur-time">00:00</div>
@@ -28,49 +33,84 @@
                     <span class="slide-point"></span>
                 </div>
             </div>
-            <div class="all-time">00:00</div>
+            <div class="all-time">04:00</div>
         </div>
-        <div class="play-control">
-            <div class="btn-default like">
-                <svg>
-                        <path id="svg_1" d="m30.46774,22.2189c6.59672,-16.53821 32.4429,0 0,21.26341c-32.4429,-21.26341 -6.59672,-37.80162 0,-21.26341z" stroke="#fff" fill="none"/>
-                </svg>
-            </div>
-            <div class="btn-default prev">
-                <svg>
-                    <line stroke='#fff' x1='20' y1='15' x2='20' y2='45' ></line>
-                    <polygon stroke='#fff' fill='none' points='24,30 45,17 45,43'></polygon>
-                </svg>
-            </div>
-            <div class="btn-default play">
-                <svg>
-                    <circle stroke='#fff' fill='none' r='24' cx='50%' cy='50%'></circle>
-                    <polygon stroke='#fff' fill='#fff' points='25,20 40,30 25,40'></polygon>
-                </svg>
-            </div>
-            <div class="btn-default next">
-                <svg>
-                    <line stroke='#fff' x1='40' y1='15' x2='40' y2='45' ></line>
-                    <polygon stroke='#fff' fill='none' points='36,30 15,17 15,43'></polygon>
-                </svg>
-            </div>
-            <div class="btn-default list">
-                <svg>
-                    <polygon stroke='#fff' fill='#fff' points='17,17 22,20 17,23'></polygon>
-                    <line stroke='#fff' x1='25' y1='20' x2='43' y2='20'></line>
-                    <line stroke='#fff' x1='17' y1='30' x2='43' y2='30'></line>
-                    <line stroke='#fff' x1='17' y1='40' x2='43' y2='40'></line>
-                </svg>
+        <div class="play-control-wrapper">
+            <div class="play-control">
+                <div class="btn-wrap like-btn">
+                    <svg t="1551539160039" class="icon noLike"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1928">
+                        <path
+                            d="M873.984 496.034909l-49.454545 49.454546L523.636364 846.382545 222.766545 545.489455l-49.454545-49.454546A193.885091 193.885091 0 0 1 116.363636 357.934545a193.861818 193.861818 0 0 1 56.948364-138.100363A193.861818 193.861818 0 0 1 311.389091 162.909091c52.340364 0 101.399273 20.224 138.123636 56.925091l49.454546 49.454545a34.909091 34.909091 0 0 0 49.361454 0l49.454546-49.454545A193.954909 193.954909 0 0 1 735.883636 162.909091c52.340364 0 101.399273 20.224 138.100364 56.925091A193.908364 193.908364 0 0 1 930.909091 357.934545a193.954909 193.954909 0 0 1-56.925091 138.100364m49.361455-325.562182A263.191273 263.191273 0 0 0 735.883636 93.090909c-70.981818 0-137.565091 27.485091-187.461818 77.381818L523.636364 195.234909l-24.762182-24.762182A263.307636 263.307636 0 0 0 311.389091 93.090909a263.214545 263.214545 0 0 0-187.461818 77.381818A263.214545 263.214545 0 0 0 46.545455 357.934545a263.214545 263.214545 0 0 0 77.381818 187.461819l49.454545 49.477818L498.967273 920.436364c6.818909 6.818909 15.732364 10.216727 24.669091 10.216727s17.873455-3.397818 24.692363-10.216727L873.890909 594.874182l49.454546-49.477818A263.121455 263.121455 0 0 0 1000.727273 357.934545c0-71.005091-27.461818-137.565091-77.381818-187.461818"
+                            fill="#000" p-id="1929"></path>
+                    </svg>
+                    <svg t="1551584445601" class="icon liked"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4441">
+                        <path
+                            d="M512 998.4c-19.2 0-38.4-12.8-38.4-19.2C454.4 966.4 128 640 83.2 595.2 32 537.6 0 467.2 0 396.8s32-147.2 83.2-198.4c51.2-51.2 121.6-83.2 198.4-83.2 76.8 0 147.2 32 198.4 83.2C492.8 211.2 505.6 224 512 236.8c6.4-12.8 19.2-25.6 32-38.4 51.2-51.2 121.6-83.2 198.4-83.2 76.8 0 147.2 32 198.4 83.2C992 249.6 1024 320 1024 396.8c0 76.8-32 147.2-83.2 198.4C896 640 569.6 966.4 550.4 979.2 550.4 985.6 531.2 998.4 512 998.4z"
+                            p-id="4442"></path>
+                    </svg>
+                </div>
+                <div class="btn-wrap prev-btn">
+                    <svg t="1551539191114" class="icon"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2195">
+                        <path
+                            d="M206 865h-38c-30.928 0-56-25.072-56-56V216c0-30.928 25.072-56 56-56h38c30.928 0 56 25.072 56 56v593c0 30.928-25.072 56-56 56z m168.686-386.191l422.304-303.4c32.294-23.201 77.282-15.83 100.484 16.464A72 72 0 0 1 911 233.883v559.053c0 39.764-32.235 72-72 72a72 72 0 0 1-39.95-12.1L376.288 570.877c-25.73-17.16-32.677-51.93-15.517-77.66a56 56 0 0 1 13.915-14.408z"
+                            p-id="2196"></path>
+                    </svg>
+                </div>
+                <div class="btn-wrap play-btn">
+                    <svg t="1551539077993" class="icon play show"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1159">
+                        <path
+                            d="M512 960C264.576 960 64 759.424 64 512S264.576 64 512 64s448 200.576 448 448-200.576 448-448 448z m0-64c212.077 0 384-171.923 384-384S724.077 128 512 128 128 299.923 128 512s171.923 384 384 384z m134.51-329.505L442.78 691.96c-15.048 9.267-34.76 4.58-44.028-10.468a32 32 0 0 1-4.752-16.78V359.288c0-17.673 14.327-32 32-32a32 32 0 0 1 16.78 4.752l203.73 125.465c30.097 18.535 39.47 57.958 20.935 88.055a64 64 0 0 1-20.935 20.935z"
+                            p-id="1160"></path>
+                    </svg>
+                    <svg t="1551591033069" class="icon pause"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2053">
+                        <path
+                            d="M512 85.333333C276.48 85.333333 85.333333 276.48 85.333333 512s191.146667 426.666667 426.666667 426.666667 426.666667-191.146667 426.666667-426.666667S747.52 85.333333 512 85.333333z m0 785.066667c-197.546667 0-358.4-160.853333-358.4-358.4s160.853333-358.4 358.4-358.4 358.4 160.853333 358.4 358.4-160.853333 358.4-358.4 358.4z"
+                            fill="#000" p-id="2054"></path>
+                        <path
+                            d="M435.2 648.533333c-18.773333 0-34.133333-15.36-34.133333-34.133333V409.6c0-18.773333 15.36-34.133333 34.133333-34.133333s34.133333 15.36 34.133333 34.133333v204.8c0 18.773333-15.36 34.133333-34.133333 34.133333zM588.8 648.533333c-18.773333 0-34.133333-15.36-34.133333-34.133333V409.6c0-18.773333 15.36-34.133333 34.133333-34.133333s34.133333 15.36 34.133333 34.133333v204.8c0 18.773333-15.36 34.133333-34.133333 34.133333z"
+                            fill="#000" p-id="2055"></path>
+                    </svg>
+                </div>
+                <div class="btn-wrap next-btn">
+                    <svg t="1551539207283" class="icon"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572">
+                        <path
+                            d="M817 160h38c30.928 0 56 25.072 56 56v593c0 30.928-25.072 56-56 56h-38c-30.928 0-56-25.072-56-56V216c0-30.928 25.072-56 56-56zM648.314 546.191l-422.304 303.4c-32.294 23.201-77.282 15.83-100.484-16.464A72 72 0 0 1 112 791.117V232.064c0-39.764 32.235-72 72-72a72 72 0 0 1 39.95 12.1l422.762 281.959c25.73 17.16 32.677 51.93 15.517 77.66a56 56 0 0 1-13.915 14.408z"
+                            p-id="2573"></path>
+                    </svg>
+                </div>
+                <div class="btn-wrap list-btn">
+                    <svg t="1551539233931" class="icon"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2711">
+                        <path
+                            d="M128 432c0-35.2 25.104-49.888 55.776-32.624l144.432 81.248c30.672 17.264 30.672 45.504 0 62.752l-144.432 81.248C153.104 641.888 128 627.2 128 592V432zM896 688a32 32 0 0 1-32 32H480a32 32 0 1 1 0-64h384a32 32 0 0 1 32 32zM896 160a32 32 0 0 1-32 32H160a32 32 0 1 1 0-64h704a32 32 0 0 1 32 32zM896 864a32 32 0 0 1-32 32H160a32 32 0 1 1 0-64h704a32 32 0 0 1 32 32zM896 336a32 32 0 0 1-32 32H480a32 32 0 1 1 0-64h384a32 32 0 0 1 32 32zM896 512a32 32 0 0 1-32 32H480a32 32 0 1 1 0-64h384a32 32 0 0 1 32 32z"
+                            p-id="2712"></path>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
+
     <script src="./js/zepto.js"></script>
     <script src="./js/gaussBlur.js"></script>
+    <script src="./js/processor.js"></script>
     <script src="./js/render.js"></script>
     <script src="./js/controlManager.js"></script>
     <script src="./js/audioManager.js"></script>
-    <script src="./js/proManager.js"></script>
     <script src="./js/playlist.js"></script>
     <script src="./js/index.js"></script>
 </body>
+
 </html>

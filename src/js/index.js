@@ -1,87 +1,85 @@
-var root = window.player;
-var $ = window.Zepto;
-var $scope = $(document.body);
-var songlist;
-var controlmanager;
-var audiomanager = new root.AudioManager();
-var processor = root.processor;
-var playList = root.playList;
-function getDate(url) {
+const root = window.player;
+const $ = window.Zepto;
+const $scope = $(document.body);
+let songList;
+let controlManager;
+const audioManager = new root.AudioManager();
+const processor = root.processor;
+const playList = root.playList;
+
+$scope.on('play-change', (e, index,flag) => {
+    const curDate = songList[index];
+    root.render(curDate);
+    audioManager.setAudioSource(curDate.audio);
+    if (audioManager.status === "play" || flag) {
+        audioManager.play();
+        processor.start()
+    }
+    processor.start();
+})
+$scope.on('click', '.prev-btn', () => {
+    let index = controlManager.prev();
+    $scope.trigger('play-change', [index]);
+})
+$scope.on('click', '.next-btn', () => {
+    let index = controlManager.next();
+    $scope.trigger('play-change', [index]);
+})
+$scope.on('click', '.play-btn', () => {
+    if (audioManager.status === 'play') {
+        audioManager.pause();
+        processor.stop()
+    } else {
+        audioManager.play();
+        processor.start();
+    }
+})
+
+$scope.on('click', '.list-btn', () => {
+    playList.show(controlManager);
+})
+
+function bindTouch() {
+    const $slidePoint = $scope.find('.slide-point');
+    const offset = $scope.find('.pro-wrapper').offset();
+    const left = offset.left;
+    const width = offset.width;
+    $slidePoint.on('touchstart', function (e) {
+        processor.stop();
+    }).on('touchmove', function (e) {
+        let x = e.changedTouches[0].clientX;
+        let percentage = (x - left) / width;
+        if (percentage > 1) {
+            percentage = 1;
+        } else if (percentage < 0) {
+            percentage = 0;
+        }
+        processor.upDate(percentage);
+    }).on('touchend', function (e) {
+        let x = e.changedTouches[0].clientX;
+        let percentage = (x - left) / width;
+        if (percentage > 1 || percentage < 0) {
+            percentage = 0;
+        }
+        console.log(percentage);
+        processor.start(percentage * audioManager.duration)
+    })
+}
+bindTouch();
+//获取数据 渲染界面
+function getData(url) {
     $.ajax({
-        type: 'get',
         url: url,
-        success: successedFn,
-        error: function () {
+        type: 'GET',
+        success(data) {
+            songList = data;
+            controlManager = new root.ControlManager(data.length);
+            $scope.trigger('play-change', [0]);
+            playList.render(data);
+        },
+        error() {
             console.log('error')
         }
     })
 }
-
-$scope.on('play:change', function (e, index,flag) {
-    var curdata = songlist[index];
-    root.render(curdata);
-    audiomanager.switchAudio(curdata.audio);
-    if (audiomanager.status === "play" || flag) {
-        audiomanager.play();
-        processor.start()
-    }
-    processor.render(curdata.duration);
-
-})
-
-$scope.on('click', '.prev', function () {
-    var index = controlmanager.prev();
-    $scope.trigger("play:change", [index]);
-})
-$scope.on('click', '.next', function () {
-    var index = controlmanager.next();
-    $scope.trigger("play:change", [index]);
-})
-
-$scope.on('click', '.play', function () {
-    if (audiomanager.status === 'play') {
-        audiomanager.pause();
-        processor.stop();
-    } else {
-        audiomanager.play();
-        processor.start();
-    }
-})
-$scope.on('click','.list',function(){
-    playList.show(controlmanager);
-})
-//进度条拖拽
-function bindTouch() {
-    var $slidePoint = $scope.find('.slide-point');
-    var offset = $scope.find('.pro-wrapper').offset();
-    var left = offset.left;
-    var width = offset.width;
-    $slidePoint.on('touchstart', function (e) {
-        processor.stop();
-    }).on('touchmove',function(e){
-        var x = e.changedTouches[0].clientX;
-        var percentage = (x - left) / width;
-        if(percentage > 1 || percentage < 0){
-            percentage = 0;
-        }
-        processor.updata(percentage);
-    }).on('touchend',function(e){
-        var x = e.changedTouches[0].clientX;
-        var percentage = (x - left) / width;
-        if(percentage > 1 || percentage < 0){
-            percentage = 0;
-        }
-        processor.start(percentage);
-        var curDuration =  songlist[controlmanager.index].duration;
-        var duration = curDuration * percentage;
-        audiomanager.jumptoPlay(duration);
-    })
-}
-function successedFn(data) {
-    bindTouch();
-    songlist = data;
-    controlmanager = new root.controlManager(data.length);
-    $scope.trigger('play:change', 0);
-    playList.render(data);
-}
-getDate("/mock/data.json")
+getData('/mock/data.json');

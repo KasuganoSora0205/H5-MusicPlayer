@@ -1,22 +1,22 @@
-(function($,root){
-    function controlManager(length){
+(function ($, root) {
+    function ControlManager(length) {
         this.index = 0;
         this.length = length;
     }
-    controlManager.prototype = {
-        next : function(){
+    ControlManager.prototype = {
+        next() {
             return this.getIndex(1);
         },
-        prev : function(){
+        prev() {
             return this.getIndex(-1);
         },
-        getIndex : function(val){
-            var index = this.index;
-            var len = this.length;
-            var curIndex = (index + val + len) % len;
+        getIndex(val){
+            let index = this.index;
+            let len = this.length;
+            let curIndex = (index + val + len) % len;
             this.index = curIndex;
             return curIndex;
         }
     }
-    root.controlManager = controlManager;
+    root.ControlManager = ControlManager;
 })(window.Zepto, window.player || (window.player = {}))

@@ -1,35 +1,31 @@
 [
     {
-        "image":"/source/Cover.jpg",
-        "audio":"/source/ピルグリム.mp3",
+        "image":"/static/Cover.jpg",
+        "audio":"/static/ピルグリム.mp3",
         "song":"ピルグリム",
         "album":"starring ReoNa - ELZA",
         "singer":"神崎エルザ",
-        "duration":245,
         "isLike":true
     },{
-        "image":"/source/Cover.jpg",
-        "audio":"/source/step,step.mp3",
+        "image":"/static/Cover.jpg",
+        "audio":"/static/step,step.mp3",
         "song":"step, step",
         "album":"starring ReoNa - ELZA",
         "singer":"神崎エルザ",
-        "duration":239,
         "isLike":false
     },{
-        "image":"/source/Cover.jpg",
-        "audio":"/source/Independence.mp3",
+        "image":"/static/Cover.jpg",
+        "audio":"/static/Independence.mp3",
         "song":"Independence",
         "album":"starring ReoNa - ELZA",
         "singer":"神崎エルザ",
-        "duration":227,
         "isLike":false
     }, {
-        "image":"/source/Cover.jpg",
-        "audio":"/source/Rea(s)oN.mp3",
+        "image":"/static/Cover.jpg",
+        "audio":"/static/Rea(s)oN.mp3",
         "song":"Rea(s)oN",
         "album":"starring ReoNa - ELZA",
         "singer":"神崎エルザ",
-        "duration":267,
         "isLike":true
     }
 ]
